@@ -1,0 +1,29 @@
+[package]
+name = "ws-pool"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Generic WebSocket pool"
+authors = ["Nerixyz"]
+repository = "https://github.com/Nerixyz/ws-pool"
+keywords = ["websocket"]
+
+[dependencies]
+fastwebsockets = { version = "0.7", features = ["upgrade"] }
+http = "1"
+http-body-util = "0.1"
+hyper = "1.1"
+hyper-util = "0.1.3"
+rand = "0.8"
+simd-json = "0.13"
+thiserror = "1.0"
+tokio = { version = "1.0", features = ["rt", "time", "sync", "macros"] }
+tokio-rustls = "0.25"
+tracing = "0.1"
+url = "2.5"
+webpki-roots = "0.26"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread"] }
+anyhow = "1.0"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
