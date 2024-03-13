@@ -84,13 +84,10 @@ impl<E> WsContext<E> {
             return Err(WsReadError::NotText);
         }
 
-        if !msg.is_utf8() {
-            warn!("Received non-UTF8 message");
-            return Err(WsReadError::NotUtf8);
-        }
-        // TODO: fix the lib or smth
-        let utf8 = unsafe { std::str::from_utf8_unchecked(&msg.payload) };
-        utf8.parse::<M>().map_err(WsReadError::Deserialize)
+        std::str::from_utf8(&msg.payload)
+            .map_err(|_| WsReadError::NotUtf8)?
+            .parse::<M>()
+            .map_err(WsReadError::Deserialize)
     }
 
     /// Set the read timeout.
