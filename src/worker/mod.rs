@@ -1,12 +1,13 @@
-use std::fmt::Display;
-use std::str::FromStr;
+use std::{fmt::Display, str::FromStr};
 
 use tokio::sync::mpsc;
 use tracing::{debug, info_span, warn};
 use url::Url;
 
-use crate::handler::{WorkerCommand, WorkerEvent};
-use crate::{ws, EventLoopAction};
+use crate::{
+    handler::{WorkerCommand, WorkerEvent},
+    ws, EventLoopAction,
+};
 
 mod context;
 mod handler;
