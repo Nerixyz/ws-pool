@@ -19,7 +19,7 @@ use std::marker::PhantomData;
 
 pub use event_loop::EventLoopAction;
 pub use handler::{run_handler, spawn_handler, Handler, HandlerContext, Worker};
-pub use worker::{WorkerHandler, WsContext};
+pub use worker::{Loopback, WorkerHandler, WsContext};
 
 /// Generic error indicating a message couldn't be send over an MPSC channel as it's already closed.
 #[derive(Default, Debug, thiserror::Error, Clone, Copy, PartialEq, Eq)]
