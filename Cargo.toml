@@ -18,7 +18,7 @@ rand = "0.8"
 simd-json = "0.13"
 thiserror = "1.0"
 tokio = { version = "1.0", features = ["rt", "time", "sync", "macros"] }
-tokio-rustls = "0.25"
+tokio-rustls = "0.26"
 tracing = "0.1"
 url = "2.5"
 webpki-roots = "0.26"
