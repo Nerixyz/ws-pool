@@ -1,7 +1,7 @@
 use std::{fmt::Display, str::FromStr};
 
 use tokio::sync::mpsc;
-use tracing::{debug, info_span, warn};
+use tracing::{debug, info_span, warn, Instrument};
 use url::Url;
 
 use crate::{
@@ -35,7 +35,10 @@ where
             Ok(sock) => {
                 let mut ctx = WsContext::new(id, sock, events_tx);
                 handler.on_created(&mut ctx, Loopback::new(loopback)).await;
-                connection_task(ctx, command_rx, handler).await;
+                let span = info_span!("connection", id = %ctx.id());
+                connection_task(ctx, command_rx, handler)
+                    .instrument(span)
+                    .await;
             }
             Err(e) => {
                 warn!("Failed to start websocket: {e}");
@@ -59,9 +62,6 @@ async fn connection_task<W, M>(
     M: FromStr,
     M::Err: Display,
 {
-    let span = info_span!("connection", id = %ctx.id());
-    let _guard = span.enter();
-
     debug!("Starting event loop");
     loop {
         let action = tokio::select! {
