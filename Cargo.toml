@@ -16,7 +16,7 @@ hyper = "1.5"
 hyper-util = "0.1.10"
 rand = "0.8"
 simd-json = "0.14"
-thiserror = "1.0"
+thiserror = "2.0"
 tokio = { version = "1.41", features = ["rt", "time", "sync", "macros"] }
 tokio-rustls = "0.26"
 tracing = "0.1"
