@@ -9,7 +9,7 @@ repository = "https://github.com/Nerixyz/ws-pool"
 keywords = ["websocket"]
 
 [dependencies]
-fastwebsockets = { version = "0.9", features = ["upgrade"] }
+fastwebsockets = { version = "0.10", features = ["upgrade"] }
 http = "1"
 http-body-util = "0.1"
 hyper = "1.5"
