@@ -13,7 +13,7 @@ fastwebsockets = { version = "0.10", features = ["upgrade"] }
 http = "1"
 http-body-util = "0.1"
 hyper = "1.7"
-hyper-util = "0.1.16"
+hyper-util = "0.1.17"
 rand = "0.9"
 simd-json = "0.16"
 thiserror = "2.0"
