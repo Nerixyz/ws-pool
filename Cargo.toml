@@ -12,8 +12,8 @@ keywords = ["websocket"]
 fastwebsockets = { version = "0.10", features = ["upgrade"] }
 http = "1"
 http-body-util = "0.1"
-hyper = "1.7"
-hyper-util = "0.1.17"
+hyper = "1.8"
+hyper-util = "0.1.18"
 rand = "0.9"
 simd-json = "0.17"
 thiserror = "2.0"
